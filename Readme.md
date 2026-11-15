@@ -2,7 +2,7 @@
 
 A small GPT-style language model trained from scratch, and a mixture-of-experts version of it, compared on the same data. 
 
-for more in-depth reading of my code go to the TPT.ipynb file under colab 
+for more in-depth reading of my code go to the TPT.ipynb file under LLMs repository 
 
 ## What is in here
 
