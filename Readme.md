@@ -49,7 +49,7 @@ All numbers are on the held-out validation set.
 
 Perplexity is exp(loss).
 
-For the dense Layer I aimed to increase the emb_dim to allow the model to capture more semantic relationships between words but in the end the MoE model was just better and the reason is it had more neural layer, because for the dense layer the emb_dim took a large chunk of the model's total parameters and I really wanted the models total parameter to hover around a hundred million because of compute. I further realised that  
+For the dense Layer I aimed to increase the emb_dim to allow the model to capture more semantic relationships between words but in the end the MoE model was just better and the reason is it had more neural layer, because for the dense layer the emb_dim took a large chunk of the model's total parameters and I really wanted the models total parameter to hover around a hundred million because of compute. I further realised that increasing the embedding dim is less important than increasing the feed forward layer. I also noticed faster inference speed for the MoE although I used a 2 layer MLP for the routing network.
 
 ![loss curves](loss_curves.png)
 
