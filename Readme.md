@@ -1,6 +1,8 @@
 # TPT
 
-A small GPT-style language model trained from scratch, and a mixture-of-experts version of it, compared on the same data.
+A small GPT-style language model trained from scratch, and a mixture-of-experts version of it, compared on the same data. 
+
+for more in-depth reading of my code go to the TPT.ipynb file under colab 
 
 ## What is in here
 
@@ -13,6 +15,8 @@ A small GPT-style language model trained from scratch, and a mixture-of-experts 
 ## Data and tokenizer
 
 Text comes from FineWeb-Edu (65%) and Wikipedia (35%). The tokenizer is byte-level BPE with a vocabulary of 16,384, trained on the training split only. It averages [x] bytes per token on the validation set.
+
+cool things i learnt that saved me a lot because it cut memory and compute usage by a large margin was to always train with torch.bfloat16
 
 
 ## Models
@@ -45,17 +49,11 @@ All numbers are on the held-out validation set.
 
 Perplexity is exp(loss).
 
-[Two or three sentences on what you found, including anything that did not work.]
+For the dense Layer I aimed to increase the emb_dim to allow the model to capture more semantic relationships between words but in the end the MoE model was just better and the reason is it had more neural layer, because for the dense layer the emb_dim took a large chunk of the model's total parameters and I really wanted the models total parameter to hover around a hundred million because of compute. I further realised that  
 
 ![loss curves](loss_curves.png)
 
-## Expert load
 
-Share of tokens routed to each expert, [with / without] the load-balancing loss.
-
-![expert load](expert_load.png)
-
-[One sentence: did routing collapse, and what did the balancing loss change?]
 
 ## Samples
 
